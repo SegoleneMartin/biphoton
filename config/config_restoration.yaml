@@ -1,0 +1,23 @@
+MODEL PARAMETERS:
+    etas: [1.1]
+    delta: 0.1
+
+NOISE ESTIMATION ALGORITHM PARAMETERS:
+    s_noise: 5 # size blur kernel
+    J: 20 # number of partitions
+    eps: 1e-7 # precision for the noise estimation algorithm
+
+RESTORATION ALGORITHM PARAMETERS:
+    x_min: 0 # minimum value of the restored image
+    x_max: 1 # maximum value of the restored image
+    n1_min: 0 # first pixel along x-axis
+    n1_max: 101 # last pixel along x-axis
+    n2_min: 0 # first pixel along y-axis
+    n2_max: 101 # last pixel along y-axis
+    n3_min: 0 # first pixel along z-axis
+    n3_max: 101 # last pixel along z-axis
+    tolerance: 1e-7 # tolerance for the stopping criterion
+    max_iter: 1000 # maximum number of iterations
+    s_rest: 3 # size blur kernel
+    
+

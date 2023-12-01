@@ -1,0 +1,15 @@
+MODEL PARAMETERS:
+    a_min: 0.0
+    a_max: 1.0
+    b_min: 0.0
+    b_max: 3.0
+    epsD: 0.0000001
+    big_sphere_size: 1.0
+
+ALGORITHM PARAMETERS:
+    gam_h: 0.0000001
+    gam_D: 1000
+    n_iter: 20
+    print_n_iter: 1
+    stop_criteria: 0.00001
+

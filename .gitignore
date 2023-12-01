@@ -1,0 +1,8 @@
+*.zip
+*.pt
+crops
+images
+kernels
+*.sublime-project
+*.sublime-workspace
+*.DS_Store
