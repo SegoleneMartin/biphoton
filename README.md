@@ -1,7 +1,11 @@
 # PSF Estimation and Image Restoration for biphoton microscopy
 
+This GitHub repository contains the code for our paper https://iopscience.iop.org/article/10.1088/1361-6420/ad3c67/pdf .
+
 ## Overview
 This project provides tools for Point Spread Function (PSF) estimation and image restoration. The biphoton images are assumed to be composed of 2 channels: a first channel with the image of the sample (e.g., muscle of size $n_x \times n_y \times n_z$), and a second channel with the image of $1 \mu m$-diameter micro-beads (of size $n_x \times n_y \times n_z$).
+
+To try the pipeline, you can download the data used in the paper here: https://drive.google.com/drive/folders/12tMM-WfDwjjmnFnUCX8gXPnyaDSe0B86?usp=drive_link
 
 The codebase includes:
 - a **PSF restoration** method named GENTLE which estimates the PSF given the bead image. The estimated PSF corresponds to a blur kernel with Gaussian prior shape.
@@ -44,5 +48,6 @@ Ensure the following Python libraries are installed:
 - scipy
 - matplotlib
 - yaml
+- mayavi
 
 If additional dependencies are required, install them using pip.
