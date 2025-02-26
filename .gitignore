@@ -3,6 +3,8 @@
 crops
 images
 kernels
+results
 *.sublime-project
 *.sublime-workspace
 *.DS_Store
+__pycache__

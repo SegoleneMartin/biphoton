@@ -8,6 +8,7 @@ import PSF_estimation.global_variables as gv
 import os
 import matplotlib.pyplot as plt
 
+
 def make_crops(image_folder_name):
 
     path_ims = 'images/' + image_folder_name + '/'
@@ -18,16 +19,12 @@ def make_crops(image_folder_name):
     for imname in dirs:
 
         print("opening image : ", imname)
-        if gv.case == 'simulation':
-            im = np.load(path_ims + imname, allow_pickle=True)
-            im = im[:, :, :]
-        else:
-            im = skio.imread(path_ims + imname)
-            im = im[:, 1, :, :].T
-            im = im / np.max(im) * 0.3
+        im = skio.imread(path_ims + imname)
+        im = im[:, 1, :, :].T
+        im = im / np.max(im) * 0.3
 
         print("Image shape", im.shape)
-        filter = np.ones((3, 3, 3)) 
+        filter = np.ones((3, 3, 3))
         filter = filter / np.sum(filter)
         imfiltered = fftconvolve(im, filter, "same")
         seuil = 0.03
@@ -73,11 +70,12 @@ def make_crops(image_folder_name):
             else:
                 zmax += padding
                 zmin -= padding
-            
+
             if zmax > im.shape[2]:
                 zmax = im.shape[2] - 1
 
-            im_croped = im[max(xmin,0):xmax, max(ymin,0):ymax, max(zmin, 0):zmax]
+            im_croped = im[max(xmin, 0):xmax, max(
+                ymin, 0):ymax, max(zmin, 0):zmax]
             print(im_croped.shape)
 
             # plot the croped image and ask the user whether he wants to save it
@@ -96,15 +94,15 @@ def make_crops(image_folder_name):
                 print("Image saved")
             else:
                 print("Image not saved")
+                plt.close()
                 continue
             plt.close()
             size = im_croped.flatten().shape[0]
             sizes.append(size)
-        
+
             try:
-                print(path_crops  + str(i) + ".npy")
+                print(path_crops + str(i) + ".npy")
                 np.save(path_crops + str(i) + ".npy", im_croped)
                 skio.imsave(path_crops + str(i) + ".tif", im_croped)
             except:
                 pass
-

@@ -1,8 +1,8 @@
 GLOBAL:
     image_name: '810_405-10_495-540_0.049xy_0.1z_lege.tif' # image name
     image_folder_name: 'mouse_muscle' # path to the image folder
-    estimate_PSF: 'True' # 'True' or 'False'
-    restore_image: 'True' # 'True' or 'False'
+    estimate_PSF: False # 'True' or 'False'
+    restore_image: True # 'True' or 'False'
     resolution: [0.049, 0.049, 0.1] # resolution of the image in microns
 
 PSF ESTIMATION:
@@ -12,8 +12,14 @@ PSF ESTIMATION:
     lambdas: [0.1, 1.0] # regularization parameter
 
 IMAGE RESTORATION:
-    folder_to_psf: 'mean/best/values/h_args_est.npy' # path to the PSF one wants to use for image restoration
-    etas: [1.2, 1.1, 1.0] # regularization parameter eta should be close to 1 (slightly more than 1)
+    method_restoration: 'PMMS' # 'PMMS' is the only method available for now
+    estimate_noise: True # 'True' or 'False'
+    path_to_psf: None # path to the PSF one wants to use for image restoration: if None, the estimated PSF will be used
+    selected_lambda: 0.1 # selected PSF parameter for restoration (check the PSF estimation results)
+    res: [0.049, 0.049, 0.1] # resolution of the image in microns
+    a: 0.022 # default noise parameter a but varies depending on the image
+    b: 0.0 # default noise parameter b but varies depending on the image
+    eta: 1.1 # regularization parameter eta should be close to 1 (slightly more than 1)
     delta: 0.1 # smoothing parameter (delta = 0.1 is recommended)
     n1_min: 0 # first pixel along x-axis
     n1_max: 101 # last pixel along x-axis
